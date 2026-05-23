@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FreshKitchen — 스마트한 냉장고 관리 앱</title>
+<meta name="description" content="식재료를 똑똑하게 관리하고, AI 레시피 추천으로 음식물 폐기를 줄이는 냉장고 관리 앱">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+    color: #222;
+    line-height: 1.6;
+    background: #fafafa;
+  }
+  :root {
+    --primary: #2d8f4e;
+    --primary-dark: #1f6b39;
+    --primary-light: #e8f5ec;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+  header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: #fff;
+    padding: 80px 20px 60px;
+    text-align: center;
+  }
+  header h1 { font-size: 2.8rem; margin-bottom: 12px; letter-spacing: -1px; }
+  header .tagline { font-size: 1.15rem; opacity: 0.95; max-width: 600px; margin: 0 auto; }
+
+  section { padding: 60px 0; }
+  section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 32px;
+    color: var(--primary-dark);
+    border-left: 4px solid var(--primary);
+    padding-left: 14px;
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .feature {
+    background: #fff;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border-top: 3px solid var(--primary);
+  }
+  .feature h3 { color: var(--primary-dark); margin-bottom: 8px; font-size: 1.1rem; }
+  .feature p { color: #555; font-size: 0.95rem; }
+
+  .coupang-highlight {
+    background: var(--primary-light);
+    border: 2px solid var(--primary);
+    border-radius: 14px;
+    padding: 36px;
+    margin: 40px 0;
+  }
+  .coupang-highlight h2 {
+    border: none;
+    padding: 0;
+    margin-bottom: 16px;
+    color: var(--primary-dark);
+  }
+  .coupang-highlight p { font-size: 1.05rem; color: #333; }
+  .coupang-highlight .badge {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 12px;
+  }
+
+  .screenshots {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  .screenshot {
+    background: #fff;
+    border-radius: 14px;
+    padding: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  .screenshot:hover { transform: translateY(-4px); }
+  .screenshot img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+  }
+  .screenshot .caption {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: var(--primary-dark);
+    font-weight: 600;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  th, td { padding: 14px 18px; text-align: left; border-bottom: 1px solid #eee; }
+  th { background: var(--primary-light); color: var(--primary-dark); width: 30%; }
+  tr:last-child th, tr:last-child td { border-bottom: none; }
+
+  footer {
+    background: #2a2a2a;
+    color: #ccc;
+    padding: 32px 20px;
+    text-align: center;
+    margin-top: 40px;
+  }
+  footer a { color: #8fd9a8; text-decoration: none; margin: 0 12px; }
+  footer a:hover { text-decoration: underline; }
+  footer .copyright { margin-top: 12px; font-size: 0.85rem; opacity: 0.7; }
+
+  @media (max-width: 600px) {
+    header h1 { font-size: 2rem; }
+    section { padding: 40px 0; }
+    .coupang-highlight { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>🥬 FreshKitchen</h1>
+    <p class="tagline">식재료를 똑똑하게 관리하고, AI 레시피 추천으로 음식물 폐기를 줄이는 냉장고 관리 앱</p>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <h2>핵심 기능</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>📸 영수증·식재료 스캔</h3>
+        <p>영수증을 찍거나 식재료를 직접 촬영하면 자동으로 인식해 냉장고에 등록합니다.</p>
+      </div>
+      <div class="feature">
+        <h3>🤖 AI 레시피 추천</h3>
+        <p>보유한 식재료와 유통기한을 분석해 지금 만들 수 있는 최적의 레시피를 추천합니다.</p>
+      </div>
+      <div class="feature">
+        <h3>⏰ 유통기한 알림</h3>
+        <p>유통기한이 다가오는 식재료를 푸시 알림으로 알려줘 음식물 폐기를 줄입니다.</p>
+      </div>
+      <div class="feature">
+        <h3>🛒 식재료 구매 추천 (쿠팡)</h3>
+        <p>떨어진 식재료를 쿠팡 최저가 상품으로 추천해 바로 구매할 수 있습니다.</p>
+      </div>
+      <div class="feature">
+        <h3>📊 소비 분석</h3>
+        <p>식재료 소비 패턴을 분석해 다음 장보기 계획을 세울 수 있도록 돕습니다.</p>
+      </div>
+      <div class="feature">
+        <h3>💬 AI 챗봇</h3>
+        <p>요리, 보관법, 영양 정보에 대해 AI 챗봇에게 자유롭게 질문할 수 있습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="coupang-highlight">
+      <span class="badge">쿠팡 파트너스 연동</span>
+      <h2>🛒 식재료, 쿠팡에서 바로 구매하세요</h2>
+      <p>FreshKitchen은 사용자의 냉장고에서 떨어진 식재료를 자동으로 감지하여,
+      <strong>쿠팡에서 바로 구매할 수 있도록 최저가 상품을 추천</strong>합니다.
+      AI가 분석한 소비 패턴과 레시피 추천을 기반으로 꼭 필요한 식재료만 골라
+      편리하게 장보기를 완료할 수 있습니다.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>앱 스크린샷</h2>
+    <div class="screenshots">
+      <div class="screenshot">
+        <img src="screenshots/01-home.png" alt="주방 인벤토리 홈 화면">
+        <div class="caption">주방 인벤토리</div>
+      </div>
+      <div class="screenshot">
+        <img src="screenshots/02-ai-recipe.png" alt="AI 레시피 추천 화면">
+        <div class="caption">AI 레시피 추천</div>
+      </div>
+      <div class="screenshot">
+        <img src="screenshots/03-scan.png" alt="AI 식재료 인식 화면">
+        <div class="caption">AI 식재료 스캔</div>
+      </div>
+      <div class="screenshot">
+        <img src="screenshots/04-scan-result.png" alt="스캔 결과 확인 화면">
+        <div class="caption">스캔 결과 & 유통기한 설정</div>
+      </div>
+      <div class="screenshot">
+        <img src="screenshots/05-analytics.png" alt="소비 분석 및 팁 화면">
+        <div class="caption">소비 분석 & 팁</div>
+      </div>
+      <div class="screenshot">
+        <img src="screenshots/06-coupang.png" alt="쿠팡 상품 추천 화면">
+        <div class="caption">🛒 쿠팡 상품 추천</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>앱 정보</h2>
+    <table>
+      <tr><th>플랫폼</th><td>Android</td></tr>
+      <tr><th>출시 예정</th><td>2026년 6월</td></tr>
+      <tr><th>주요 대상</th><td>1인 가구, 자취생, 가정주부</td></tr>
+      <tr><th>개발팀</th><td>fresh-kitchen-team</td></tr>
+      <tr><th>문의</th><td><a href="mailto:freshkitchen.team@gmail.com">freshkitchen.team@gmail.com</a></td></tr>
+    </table>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <a href="privacy.html">개인정보 처리방침</a>
+    <a href="terms.html">이용약관</a>
+    <a href="mailto:freshkitchen.team@gmail.com">문의하기</a>
+  </div>
+  <div class="copyright">© 2026 FreshKitchen Team. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
